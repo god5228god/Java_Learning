@@ -1,0 +1,130 @@
+6장. 메소드와 변수의 스코프
+
+6-1 메소드에 대한 이해와 메소드의 정의
+
+  메소드   →  함수 →   기능/동작/행위(→ 도구)
+  메소드 정의
+   함수 정의
+       ↓
+   함수 호출
+  메소드 호출
+
+# main()메소드
+  ! 아는 것
+    메소드 이름은 main
+    main() 먼저 실행
+    메소드 중괄호 내에 존재하는 문장들이 위에서 아래로 순차적 실행
+  ? 모르는 것
+    public, static, void, String[] args
+    왜 항상 main()인가
+
+  ○ 다른 메소드 만들기
+  class MethodDefAdd
+  {
+    public static void main(String[] args)
+    {
+      System.out.println("프로그램의 시작");
+      hiEveryone(12);    ┐
+                         │ 메소드 실행(호출) 방법
+      hiEveryone(13);    ┘
+      System.out.println("프로그램의 끝");
+    }
+    public static void hiEveryone(int age) 
+    {
+      System.out.println("좋은 아침입니다.");
+      System.out.println("제 나이는" + age + "세 입니다.");
+    }
+  }
+
+  ○ 매개변수가 두 개인 형태의 메소드
+  class Method2param
+  {
+    public static void main(String[] args)
+    {
+      double myHeight = 175.9;
+      hiEveryone(12, 12.5);   
+      hiEveryone(13, myHeight);    
+      byeEveryone();
+    }
+    public static void hiEveryone(int age, double height)  // 전달 순서대로 저장
+    {
+      System.out.println("제 나이는" + age + "세 입니다.");
+      System.out.println("저의 키는" + height + "cm 입니다.");
+    }
+    public static void byeEveryone()  // 전달되는 것 없음
+    {
+      System.out.println("다음에 뵙겠습니다.");
+    }
+  }
+
+  ○ 값을 반환하는 메소드
+  int 메소드명(데이터타입 매개변수이름) //int형태로 반환함
+  {
+      ...
+      return 10;
+  }
+
+  int result = 메소드명(123.4);
+
+  void 메소드명()    //void 반환(리턴)자료가 없는 메소드 앞에 씀
+  {
+    ...
+  }
+
+
+  public static void main(String[] args)
+  {
+    int result = adder(4,5)
+
+  }
+  public static int adder(int num1, int num2)
+  {
+    int addReault = num1 + num2;
+    return addResult;
+  }
+  public static double square(double num)
+  {
+    return num * num;
+  }
+
+6-2 변수의 스코프
+
+  ○ 가시성 - 선언 위치가 중요★
+    선언된 지역을 벗어나면 변수는 자동 소멸된다
+  class LocalVariable{
+    public static void main(String[] args)
+    {  
+      boolean scope = ture;            
+      if(scope)
+      {
+        int num = 1;              ┐
+        num++;                    ├ num = 1의 유효범위
+        System.out.println(num);  ┘
+      }
+      else
+      {
+        int num = 2;              ┐ num = 2의 유효범위
+        System.out.println(num);  ┘
+      }
+      simple();
+    }
+    public static void simple()
+    {
+        int num = 3;
+        System.out.println(num);
+    }
+  }
+
+6-3 메소드의 재귀호출
+5! = 5 * 4!
+4! = 4 * 3!
+    :
+1! = 1
+                          public static int factorial(int n){
+f(n) = (n=1) 1              if(n==1)    
+       (n>=2) n * f(n-1)      return 1;
+                            else 
+                              return n*factorial(n-1);
+                          }
+
+

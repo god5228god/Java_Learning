@@ -1,20 +1,20 @@
 /* ==========================================
-   ¡á¡á¡á ½ÇÇà Èå¸§ÀÇ ÄÁÆ®·Ñ(Á¦¾î¹®) ¡á¡á¡á
-   - switch ±¸¹®
+   â– â– â–  ì‹¤í–‰ íë¦„ì˜ ì»¨íŠ¸ë¡¤(ì œì–´ë¬¸) â– â– â– 
+   - switch êµ¬ë¬¸
 =============================================*/
 
-// ¡Û »ç¿ëÀÚ·ÎºÎÅÍ ÀÓÀÇÀÇ µÎ Á¤¼ö¿Í ¿¬»êÀÚ¸¦ ÀÔ·Â¹Þ¾Æ
-// ÇØ´ç ¿¬»êÀÚÀÇ ¿¬»ê Ã³¸® °á°ú¸¦ Ãâ·ÂÇÏ´Â ÇÁ·Î±×·¥À» ±¸ÇöÇÑ´Ù.
-// ´Ü, switch¹®À» È°¿ëÇÏ¿© Ã³¸®ÇÒ ¼ö ÀÖµµ·Ï ÇÏ¸ç,
-// ¿¬»êÀÇ °á°ú´Â ÆíÀÇ»ó Á¤¼ö ÇüÅÂ·Î Ã³¸®ÇÒ ¼ö ÀÖµµ·Ï ÇÑ´Ù.
+// â—‹ ì‚¬ìš©ìžë¡œë¶€í„° ìž„ì˜ì˜ ë‘ ì •ìˆ˜ì™€ ì—°ì‚°ìžë¥¼ ìž…ë ¥ë°›ì•„
+// í•´ë‹¹ ì—°ì‚°ìžì˜ ì—°ì‚° ì²˜ë¦¬ ê²°ê³¼ë¥¼ ì¶œë ¥í•˜ëŠ” í”„ë¡œê·¸ëž¨ì„ êµ¬í˜„í•œë‹¤.
+// ë‹¨, switchë¬¸ì„ í™œìš©í•˜ì—¬ ì²˜ë¦¬í•  ìˆ˜ ìžˆë„ë¡ í•˜ë©°,
+// ì—°ì‚°ì˜ ê²°ê³¼ëŠ” íŽ¸ì˜ìƒ ì •ìˆ˜ í˜•íƒœë¡œ ì²˜ë¦¬í•  ìˆ˜ ìžˆë„ë¡ í•œë‹¤.
 
-// ½ÇÇà ¿¹)
-// Ã¹ ¹øÂ° Á¤¼ö ÀÔ·Â : 3
-// µÎ ¹øÂ° Á¤¼ö ÀÔ·Â : 12
-// ¿¬»êÀÚ ÀÔ·Â(+ - * /) : +
+// ì‹¤í–‰ ì˜ˆ)
+// ì²« ë²ˆì§¸ ì •ìˆ˜ ìž…ë ¥ : 3
+// ë‘ ë²ˆì§¸ ì •ìˆ˜ ìž…ë ¥ : 12
+// ì—°ì‚°ìž ìž…ë ¥(+ - * /) : +
 
 // 3 + 12 = 15
-// °è¼ÓÇÏ·Á¸é ¾Æ¹« Å°³ª ´©¸£¼¼¿ä...
+// ê³„ì†í•˜ë ¤ë©´ ì•„ë¬´ í‚¤ë‚˜ ëˆ„ë¥´ì„¸ìš”...
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -25,22 +25,22 @@ public class Test042
 	public static void main(String[] args) throws IOException
 	{
 		
-		// [³» Ç®ÀÌ]
+		// [ë‚´ í’€ì´]
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		int a, b, op;
 		int result=0;
 		
-		System.out.print("Ã¹ ¹øÂ° Á¤¼ö ÀÔ·Â : ");
+		System.out.print("ì²« ë²ˆì§¸ ì •ìˆ˜ ìž…ë ¥ : ");
 		a = Integer.parseInt(br.readLine());
-		System.out.print("µÎ ¹øÂ° Á¤¼ö ÀÔ·Â : ");
+		System.out.print("ë‘ ë²ˆì§¸ ì •ìˆ˜ ìž…ë ¥ : ");
 		b = Integer.parseInt(br.readLine());
-		System.out.print("¿¬»êÀÚ ÀÔ·Â(+ - * /) :");
-		op = System.in.read();					//¾Æ½ºÅ°ÄÚµå°ª ¹ÝÈ¯
+		System.out.print("ì—°ì‚°ìž ìž…ë ¥(+ - * /) :");
+		op = System.in.read();					//ì•„ìŠ¤í‚¤ì½”ë“œê°’ ë°˜í™˜
 		
 		//+(43),-(45),*(42),/(47)
 		switch(op)
 		{ 
-			default: System.out.println("ÀÔ·Â¿À·ù");break;
+			default: System.out.println("ìž…ë ¥ì˜¤ë¥˜");break;
 			case 43: result = a + b; break; 
 			case 45: result = a - b; break; 
 			case 42: result = a * b; break; 
@@ -51,25 +51,25 @@ public class Test042
 		
 		//-------------------------------------------------------------------------
 		
-		// [¸ð¹ü Ç®ÀÌ]
+		// [ëª¨ë²” í’€ì´]
 		/*
-		// ¨ç
+		// â‘ 
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		
 		int a, b, result;
 		int op;
 		
-		System.out.print("Ã¹ ¹øÂ° Á¤¼ö ÀÔ·Â : ");
+		System.out.print("ì²« ë²ˆì§¸ ì •ìˆ˜ ìž…ë ¥ : ");
 		a = Integer.parseInt(br.readLine());
-		System.out.print("µÎ ¹øÂ° Á¤¼ö ÀÔ·Â : ");
+		System.out.print("ë‘ ë²ˆì§¸ ì •ìˆ˜ ìž…ë ¥ : ");
 		b = Integer.parseInt(br.readLine());
 		
-		System.out.print("¿¬»êÀÚ ÀÔ·Â(+ - * /) :");
+		System.out.print("ì—°ì‚°ìž ìž…ë ¥(+ - * /) :");
 		op = System.in.read();	
 		
-		//Å×½ºÆ®(È®ÀÎ)
+		//í…ŒìŠ¤íŠ¸(í™•ì¸)
 		//System.out.println("op : " + op);
-		// '+' ¡æ 43, '-' ¡æ 45, '*' ¡æ 42, '/' ¡æ 47
+		// '+' â†’ 43, '-' â†’ 45, '*' â†’ 42, '/' â†’ 47
 		
 		switch (op)
 		{
@@ -77,26 +77,26 @@ public class Test042
 			case 45 : result = a - b; break;
 			case 42 : result = a * b; break;
 			case 47 : result = a / b; break;
-			default : return;		// 1. °ªÀÇ ¹ÝÈ¯
-									// 2. ¸Þ¼Òµå Á¾·á ¡æ main() ¸Þ¼Òµå Á¾·á ¡æ ÇÁ·Î±×·¥ Á¾·á
+			default : return;		// 1. ê°’ì˜ ë°˜í™˜
+									// 2. ë©”ì†Œë“œ ì¢…ë£Œ â†’ main() ë©”ì†Œë“œ ì¢…ë£Œ â†’ í”„ë¡œê·¸ëž¨ ì¢…ë£Œ
 		}
-		System.out.println();		//°³Çà
+		System.out.println();		//ê°œí–‰
 		System.out.printf(">> %d %c %d = %d\n", a, op, b, result);
 		*/
 		/*
-		// ¨è
+		// â‘¡
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		
 		int a, b, result;
 		//int op;
 		char op;
 		
-		System.out.print("Ã¹ ¹øÂ° Á¤¼ö ÀÔ·Â : ");
+		System.out.print("ì²« ë²ˆì§¸ ì •ìˆ˜ ìž…ë ¥ : ");
 		a = Integer.parseInt(br.readLine());
-		System.out.print("µÎ ¹øÂ° Á¤¼ö ÀÔ·Â : ");
+		System.out.print("ë‘ ë²ˆì§¸ ì •ìˆ˜ ìž…ë ¥ : ");
 		b = Integer.parseInt(br.readLine());
 		
-		System.out.print("¿¬»êÀÚ ÀÔ·Â(+ - * /) :");
+		System.out.print("ì—°ì‚°ìž ìž…ë ¥(+ - * /) :");
 		//op = System.in.read();	
 		op = (char)System.in.read();
 		
@@ -109,28 +109,28 @@ public class Test042
 			default : return;
 		}
 		
-		System.out.println();		//°³Çà
+		System.out.println();		//ê°œí–‰
 		System.out.printf(">> %d %c %d = %d\n", a, op, b, result);
 		*/
 		
 		/*
-		// ¨é
+		// â‘¢
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		
 		int a, b, result;
 		//int op;
 		//char op;
-		String op;								//switch¹®¿¡¼­´Â ¹®ÀÚ¿­ ºñ±³ °¡´É
+		String op;								//switchë¬¸ì—ì„œëŠ” ë¬¸ìžì—´ ë¹„êµ ê°€ëŠ¥
 		
-		System.out.print("Ã¹ ¹øÂ° Á¤¼ö ÀÔ·Â : ");
+		System.out.print("ì²« ë²ˆì§¸ ì •ìˆ˜ ìž…ë ¥ : ");
 		a = Integer.parseInt(br.readLine());
-		System.out.print("µÎ ¹øÂ° Á¤¼ö ÀÔ·Â : ");
+		System.out.print("ë‘ ë²ˆì§¸ ì •ìˆ˜ ìž…ë ¥ : ");
 		b = Integer.parseInt(br.readLine());
 		
-		System.out.print("¿¬»êÀÚ ÀÔ·Â(+ - * /) :");
+		System.out.print("ì—°ì‚°ìž ìž…ë ¥(+ - * /) :");
 		//op = System.in.read();	
 		//op = (char)System.in.read();
-		op = br.readLine();						// ¹®ÀÚ¿­ ±×´ë·Î ¹ÞÀ½
+		op = br.readLine();						// ë¬¸ìžì—´ ê·¸ëŒ€ë¡œ ë°›ìŒ
 		
 		switch(op)
 		{
@@ -145,41 +145,41 @@ public class Test042
 			default : return;
 		}
 		
-		System.out.println();		//°³Çà
+		System.out.println();		//ê°œí–‰
 		System.out.printf(">> %d %s %d = %d\n", a, op, b, result);
 		*/
 	}
 }
 
-//½ÇÇà°á°ú
+//ì‹¤í–‰ê²°ê³¼
 /*
-Ã¹ ¹øÂ° Á¤¼ö ÀÔ·Â : 10
-µÎ ¹øÂ° Á¤¼ö ÀÔ·Â : 20
-¿¬»êÀÚ ÀÔ·Â(+ - * /) :+
+ì²« ë²ˆì§¸ ì •ìˆ˜ ìž…ë ¥ : 10
+ë‘ ë²ˆì§¸ ì •ìˆ˜ ìž…ë ¥ : 20
+ì—°ì‚°ìž ìž…ë ¥(+ - * /) :+
 10 + 20 = 30
-°è¼ÓÇÏ·Á¸é ¾Æ¹« Å°³ª ´©¸£½Ê½Ã¿À . . .
+ê³„ì†í•˜ë ¤ë©´ ì•„ë¬´ í‚¤ë‚˜ ëˆ„ë¥´ì‹­ì‹œì˜¤ . . .
 */
 
 /*
-Ã¹ ¹øÂ° Á¤¼ö ÀÔ·Â : 10
-µÎ ¹øÂ° Á¤¼ö ÀÔ·Â : 20
-¿¬»êÀÚ ÀÔ·Â(+ - * /) :-
+ì²« ë²ˆì§¸ ì •ìˆ˜ ìž…ë ¥ : 10
+ë‘ ë²ˆì§¸ ì •ìˆ˜ ìž…ë ¥ : 20
+ì—°ì‚°ìž ìž…ë ¥(+ - * /) :-
 10 - 20 = -10
-°è¼ÓÇÏ·Á¸é ¾Æ¹« Å°³ª ´©¸£½Ê½Ã¿À . . .
+ê³„ì†í•˜ë ¤ë©´ ì•„ë¬´ í‚¤ë‚˜ ëˆ„ë¥´ì‹­ì‹œì˜¤ . . .
 */
 
 /*
-Ã¹ ¹øÂ° Á¤¼ö ÀÔ·Â : 10
-µÎ ¹øÂ° Á¤¼ö ÀÔ·Â : 20
-¿¬»êÀÚ ÀÔ·Â(+ - * /) :*
+ì²« ë²ˆì§¸ ì •ìˆ˜ ìž…ë ¥ : 10
+ë‘ ë²ˆì§¸ ì •ìˆ˜ ìž…ë ¥ : 20
+ì—°ì‚°ìž ìž…ë ¥(+ - * /) :*
 10 * 20 = 200
-°è¼ÓÇÏ·Á¸é ¾Æ¹« Å°³ª ´©¸£½Ê½Ã¿À . . .
+ê³„ì†í•˜ë ¤ë©´ ì•„ë¬´ í‚¤ë‚˜ ëˆ„ë¥´ì‹­ì‹œì˜¤ . . .
 */
 
 /*
-Ã¹ ¹øÂ° Á¤¼ö ÀÔ·Â : 100
-µÎ ¹øÂ° Á¤¼ö ÀÔ·Â : 2
-¿¬»êÀÚ ÀÔ·Â(+ - * /) :/
+ì²« ë²ˆì§¸ ì •ìˆ˜ ìž…ë ¥ : 100
+ë‘ ë²ˆì§¸ ì •ìˆ˜ ìž…ë ¥ : 2
+ì—°ì‚°ìž ìž…ë ¥(+ - * /) :/
 100 / 2 = 50
-°è¼ÓÇÏ·Á¸é ¾Æ¹« Å°³ª ´©¸£½Ê½Ã¿À . . .
+ê³„ì†í•˜ë ¤ë©´ ì•„ë¬´ í‚¤ë‚˜ ëˆ„ë¥´ì‹­ì‹œì˜¤ . . .
 */

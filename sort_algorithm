@@ -1,0 +1,96 @@
+/* ========================================
+   ■■■ 정렬(Sort) 알고리즘 ■■■
+===========================================*/
+
+// ○ 과제
+//    사용자로부터 여러 학생의 성적 데이터를 입력받아
+//    점수가 높은 학생부터 낮은 순으로 등수를 부여하여
+//    결과를 출력하는 프로그램을 구현한다.
+//    단, 배열과 정렬 알고리즘을 활용하여 작성할 수 있도록 한다.
+
+// 실행 예)
+// 인원 수 입력 : 5
+// 이름과 점수 입력(1, 공백 구분) : 강명철 80
+// 이름과 점수 입력(2, 공백 구분) : 안진모 95
+// 이름과 점수 입력(3, 공백 구분) : 양호열 75
+// 이름과 점수 입력(4, 공백 구분) : 유현선 90
+// 이름과 점수 입력(5, 공백 구분) : 윤주열 85
+
+// --------------
+// 1등 안진모 95
+// 2등 유현선 90
+// 3등 윤주열 85
+// 4등 강명철 80
+// 5등 양호열 75
+// -------------
+// 계속하려면 아무 키나 누르십시오 . . .
+
+
+import java.util.Scanner;
+
+class Student{
+    // 학생의 이름과 성적, 등수를 담을 클래스(학생 한 명 기준)
+    String name;
+    int score;
+    int rank;
+}
+
+
+public class Test115 {
+    private Student[] std;  // Student배열 생성
+    private int num;    // 사용자에게 입력받은 인원 수를 담을 변수
+    Scanner sc = new Scanner(System.in);
+
+    public void inwon(){
+        System.out.print("인원 수 입력 : ");
+        num = sc.nextInt();                 //입력 받은 값을 num변수에 대입
+    }
+
+    public void input(){                    // 입력받은 인원 수 기준으로 이름과 성적을 입력받도록 하는 메소드
+        std = new Student[num];             // 인원 수 만큼 배열 생성
+        for(int i = 0; i<num ; i++){
+            std[i] = new Student();         // Student배열 인스턴스 생성
+            System.out.printf("이름과 점수 입력(%d, 공백 구분) : ", (i+1));
+            std[i].name = sc.next();
+            std[i].score= sc.nextInt();
+        }
+    }
+
+    private void sort(){
+        boolean flag = true;
+        Student temp;
+        do {
+            flag = false;
+            for (int i = 0; i<num-1 ; i++){
+                if(std[i].score< std[i+1].score){
+                   temp = std[i];
+                   std[i] = std[i+1];
+                   std[i+1] = temp;
+                   flag = true;
+                }
+            }
+        }while (flag);
+
+        for(int i = 0; i < num; i++){
+            std[i].rank = i + 1;
+        }
+    }
+
+    public void print(){
+        System.out.println();
+        System.out.println("------------");
+        for (int i = 0; i<num;i++){
+            System.out.printf("%d등 %s %d\n",std[i].rank, std[i].name, std[i].score);
+        }
+        System.out.println("------------");
+    }
+
+
+    public static void main(String[] args) {
+        Test115 ob = new Test115();
+        ob.inwon();
+        ob.input();
+        ob.sort();
+        ob.print();
+    }
+}

@@ -1,0 +1,115 @@
+/* ========================================
+   ■■■ 정렬(Sort) 알고리즘 ■■■
+===========================================*/ 
+
+// ○ 과제
+//	 사용자로부터 여러 학생의 성적 데이터를 입력받아
+//	 점수가 높은 학생부터 낮은 순으로 등수를 부여하여
+//	 결과를 출력하는 프로그램을 구현한다.
+//	 단, 배열과 정렬 알고리즘을 활용하여 작성할 수 있도록 한다.
+
+// 실행 예)
+// 인원 수 입력 : 5
+// 이름과 점수 입력(1, 공백 구분) : 강명철 80
+// 이름과 점수 입력(2, 공백 구분) : 안진모 95
+// 이름과 점수 입력(3, 공백 구분) : 양호열 75
+// 이름과 점수 입력(4, 공백 구분) : 유현선 90
+// 이름과 점수 입력(5, 공백 구분) : 윤주열 85
+
+// --------------
+// 1등 안진모 95
+// 2등 유현선 90
+// 3등 윤주열 85
+// 4등 강명철 80
+// 5등 양호열 75
+// -------------
+// 계속하려면 아무 키나 누르십시오 . . .
+
+import java.util.Scanner;
+
+class Student{
+    // 학생의 이름과 성적, 등수를 담을 클래스(학생 한 명 기준)
+    String name;
+    int score;
+    int rank;
+}
+
+public class Test114{
+	
+	private Student[] std;														// Student배열 생성
+    private int num;															// 사용자에게 입력받은 인원 수를 담을 변수
+    Scanner sc = new Scanner(System.in);
+
+    public void inwon(){														// 사용자에게 인원 수를 입력받을 메소드
+        System.out.print("인원 수 입력 : ");
+        num = sc.nextInt();														 //입력 받은 값을 num변수에 대입
+    }
+
+    public void input(){														 // 입력받은 인원 수 기준으로 이름과 성적을 입력받도록 하는 메소드
+        std = new Student[num];													 // 인원 수 만큼 배열 생성
+        for(int i = 0; i<num ; i++){
+            std[i] = new Student();												 // Student배열 인스턴스 생성
+            System.out.printf("이름과 점수 입력(%d, 공백 구분) : ", (i+1));
+            std[i].name = sc.next();											 // Student클래스 name변수의 인덱스 i번째에 입력받은 문자열 담기
+            std[i].score= sc.nextInt();											 // Student클래스 score변수의 인덱스 i번째에 입력받은 정수 담기
+        }
+    }
+
+    private void sort(){														 // 입력받은 성적 기준 정렬 메소드(향상된 버블정렬)											
+        boolean flag = true;													 
+        Student temp;															 // 값의 자리바꿈(swap)을 위한 임시 변수																
+        do {
+            flag = false;
+            for (int i = 0; i<num-1 ; i++){										 // i: 0 1 2 .. num-1
+                if(std[i].score< std[i+1].score){						         // std[i].score가 std.[i+1]보다 작다면 정렬(내림차순)
+                   temp = std[i];												 // std[i]전체를 정렬
+                   std[i] = std[i+1];
+                   std[i+1] = temp;
+                   flag = true;
+                }
+            }
+        }while (flag);
+
+        for(int i = 0; i < num; i++){											 // i: 0 1 2 ... num
+            std[i].rank = i + 1;												 // rank변수에 i+1을 대입(석차)
+        }
+    }
+
+    public void print(){														 // 출력 메소드
+        System.out.println();													 // 개행			
+        System.out.println("--------------");
+        for (int i = 0; i<num;i++){
+            System.out.printf("%d등 %s %d\n",std[i].rank, std[i].name, std[i].score);
+        }
+        System.out.println("--------------");
+    }
+
+	public static void main(String[] args)
+	{
+		Test114 ob = new Test114();												// Test114클래스 기반 인스턴스 생성
+        ob.inwon();
+        ob.input();
+        ob.sort();
+        ob.print();
+	}
+}
+
+// 실행 결과
+/*
+인원 수 입력 : 5
+이름과 점수 입력(1, 공백 구분) : 강명철 87
+이름과 점수 입력(2, 공백 구분) : 안진모 75
+이름과 점수 입력(3, 공백 구분) : 양호열 98
+이름과 점수 입력(4, 공백 구분) : 유현선 78
+이름과 점수 입력(5, 공백 구분) : 윤주열 89
+
+--------------
+1등 양호열 98
+2등 윤주열 89
+3등 강명철 87
+4등 유현선 78
+5등 안진모 75
+--------------
+계속하려면 아무 키나 누르십시오 . . .
+
+*/
